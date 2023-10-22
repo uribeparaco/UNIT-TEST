@@ -1,0 +1,56 @@
+package com.example.calculadora01;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class MainActivityTest {
+
+    private MainActivity mainActivity;
+
+    @Before
+    public void setUp() {
+        mainActivity = new MainActivity();
+    }
+
+    @Test
+    public void testCalculateResultAdd() {
+         int result = mainActivity.calculateResult("+", 5, 3);
+        assertEquals(8.0, result, 0.01);
+    }
+
+    @Test
+    public void testCalculateResultSubtract() {
+        double result = mainActivity.calculateResult("-", 5, 3);
+        assertEquals(2.0, result, 0.01);
+    }
+
+    @Test
+    public void testCalculateResultMultiply() {
+        double result = mainActivity.calculateResult("*", 5, 3);
+        assertEquals(15.0, result, 0.01);
+    }
+
+    @Test
+    public void testCalculateResultDivide() {
+        double result = mainActivity.calculateResult("/", 6, 2);
+        assertEquals(3.0, result, 0.01);
+    }
+
+    @Test
+    public void testCalculateResultDivideByZero() {
+        double result = mainActivity.calculateResult("/", 6, 0);
+        assertEquals("División por cero no permitida", mainActivity.getTextViewResult().getText());
+    }
+
+    @Test
+    public void testCalculatePower() {
+        double result = mainActivity.calculatePower(2, 3);
+        assertEquals(8.0, result, 0.01);
+    }
+}
+
+
+
+
+
